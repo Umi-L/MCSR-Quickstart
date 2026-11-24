@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MCSR Quickstart</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <div class="brand"><span class="badge" aria-hidden="true">MQ</span><h1>MCSR Quickstart</h1></div>
+      <button id="refresh" class="icon-btn" type="button" title="Check connection" aria-label="Check connection">⟳</button>
+    </header>
+
+    <section class="status" id="status" data-kind="checking" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <div class="status-title" id="status-title">Checking…</div>
+        <div class="status-detail" id="status-detail"></div>
+      </div>
+    </section>
+
+    <form id="settings" class="card" autocomplete="off">
+      <h2>Connection</h2>
+      <label class="field">
+        <span>Port</span>
+        <input id="port" type="number" min="1" max="65535" required />
+      </label>
+      <label class="field">
+        <span>Token</span>
+        <div class="token-row">
+          <input id="token" type="password" spellcheck="false" placeholder="Shown by the Quickstart app" />
+          <button id="toggle-token" class="icon-btn" type="button" title="Show token" aria-label="Show token">👁</button>
+        </div>
+      </label>
+      <div class="actions">
+        <span id="save-note" class="note" aria-live="polite"></span>
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </form>
+
+    <section class="card">
+      <h2>Supported sites</h2>
+      <ul id="sites" class="sites"></ul>
+    </section>
+    <script src="popup.js"></script>
+  </body>
+</html>

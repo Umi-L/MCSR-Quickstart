@@ -1,0 +1,22 @@
+{
+  "name": "mcsr-quickstart-extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Adds a Play button to MCSR seed sites that launches the seed in MCSR Ranked via the local Quickstart app.",
+  "type": "module",
+  "scripts": {
+    "dev": "node build.mjs --watch",
+    "build": "node build.mjs",
+    "typecheck": "node build.mjs --gen-only && tsc --noEmit",
+    "package": "node build.mjs --package"
+  },
+  "dependencies": {
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/webextension-polyfill": "^0.12.1",
+    "esbuild": "^0.24.0",
+    "fflate": "^0.8.2",
+    "typescript": "^5.6.3"
+  }
+}

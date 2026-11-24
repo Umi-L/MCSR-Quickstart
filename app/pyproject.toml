@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcsr-quickstart"
+version = "0.1.0"
+description = "Companion app that creates MCSR Ranked worlds from seeds clicked in the browser."
+requires-python = ">=3.11"
+dependencies = [
+  "PySide6>=6.6",
+  "pynput>=1.7.6",
+  "psutil>=5.9",
+  "platformdirs>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.10",
+  "pytest>=8.0",
+  "ruff>=0.5",
+  "watchfiles>=0.21",
+  "pyinstaller>=6.0",
+  "types-psutil",
+]
+
+[project.scripts]
+mcsr-quickstart = "mcsr_quickstart.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["mcsr_quickstart*"]
+
+[tool.setuptools.package-data]
+mcsr_quickstart = ["ui/theme.qss", "py.typed"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["pynput", "pynput.*"]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

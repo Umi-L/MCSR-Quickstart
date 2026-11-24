@@ -1,0 +1,98 @@
+/* Injected into host pages: every selector is namespaced with `mcsrq-`. */
+
+.mcsrq-btn {
+  --mcsrq-bg: #3574f0;
+  --mcsrq-bg-hover: #2a5fc7;
+  --mcsrq-fg: #ffffff;
+
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: none;
+  font: 700 14px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--mcsrq-fg);
+  background: var(--mcsrq-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.25) inset, 0 4px 14px rgb(53 116 240 / 0.28);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease, transform 80ms ease, box-shadow 120ms ease;
+}
+
+.mcsrq-btn:hover { background: var(--mcsrq-bg-hover); }
+.mcsrq-btn:active { transform: translateY(1px); }
+.mcsrq-btn:focus-visible { outline: 2px solid #9dbbf8; outline-offset: 2px; }
+.mcsrq-btn:disabled { cursor: progress; }
+
+.mcsrq-btn--full {
+  height: 40px;
+  padding: 0 18px;
+  margin-bottom: 20px;
+}
+
+.mcsrq-btn--compact {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 13px;
+}
+.mcsrq-btn--compact .mcsrq-icon { border-width: 5px 0 5px 8px; }
+
+/* Compact buttons sit at the right edge inside their anchor, so the host layout is untouched. */
+.mcsrq-host { position: relative; }
+.mcsrq-host > .mcsrq-btn--compact {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+.mcsrq-host > .mcsrq-btn--compact:active { transform: translateY(calc(-50% + 1px)); }
+
+/* Play triangle; swapped per state below. */
+.mcsrq-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.mcsrq-btn[data-state='sending'] { --mcsrq-bg: #a3a3a3; --mcsrq-bg-hover: #a3a3a3; --mcsrq-fg: #171717; }
+.mcsrq-btn[data-state='sending'] .mcsrq-icon {
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: mcsrq-spin 700ms linear infinite;
+}
+
+.mcsrq-btn[data-state='sent'] { --mcsrq-bg: #1e7b34; --mcsrq-bg-hover: #1e7b34; --mcsrq-fg: #fff; }
+
+.mcsrq-btn[data-state='offline'],
+.mcsrq-btn[data-state='unauthorized'],
+.mcsrq-btn[data-state='error'] { --mcsrq-bg: #ef4444; --mcsrq-bg-hover: #dc2626; --mcsrq-fg: #fff; }
+
+.mcsrq-btn[data-state='busy'] { --mcsrq-bg: #f59e0b; --mcsrq-bg-hover: #d97706; --mcsrq-fg: #1c1917; }
+
+.mcsrq-btn[data-state='sent'] .mcsrq-icon,
+.mcsrq-btn[data-state='offline'] .mcsrq-icon,
+.mcsrq-btn[data-state='busy'] .mcsrq-icon,
+.mcsrq-btn[data-state='unauthorized'] .mcsrq-icon,
+.mcsrq-btn[data-state='error'] .mcsrq-icon { display: none; }
+
+/* Compact buttons show a symbol per state; the full message is in the tooltip. */
+.mcsrq-btn--compact[data-state='sent']::after { content: '✓'; }
+.mcsrq-btn--compact[data-state='busy']::after { content: '…'; }
+.mcsrq-btn--compact[data-state='offline']::after,
+.mcsrq-btn--compact[data-state='unauthorized']::after,
+.mcsrq-btn--compact[data-state='error']::after { content: '!'; }
+
+@keyframes mcsrq-spin { to { transform: rotate(360deg); } }

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "MCSR Quickstart",
+  "description": "Adds a Play button to MCSR seed sites that opens the seed in MCSR Ranked via the local Quickstart app.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "MCSR Quickstart",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

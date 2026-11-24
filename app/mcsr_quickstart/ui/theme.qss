@@ -1,0 +1,185 @@
+/* MCSR Quickstart — "islands" theme (dark). Accent: #3574F0
+   Tokens: frame #131416 · island #1E1F22 · island-2 #25272A · border #2B2D30
+           text #DFE1E5 · text-2 #B4B8BF · text-3 #8C9099 · sel #1D2B4A */
+
+* {
+    font-family: "Inter", "Segoe UI", "SF Pro Text", "Helvetica Neue", sans-serif;
+    font-size: 10pt;
+    color: #DFE1E5;
+}
+
+QMainWindow, QWidget#Root { background: #131416; }
+
+/* ---- Title bar ---- */
+QWidget#TitleBar { background: transparent; }
+QLabel#Badge {
+    background: #8257E5;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 700;
+    min-width: 22px; max-width: 22px;
+    min-height: 22px; max-height: 22px;
+    qproperty-alignment: AlignCenter;
+}
+QLabel#Brand { font-weight: 600; color: #DFE1E5; }
+QLabel#BrandAccent { color: #8C9099; font-weight: 400; }
+QLabel#TitleCenter { color: #B4B8BF; font-weight: 500; }
+QFrame#Pill {
+    background: transparent;
+    border-radius: 8px;
+}
+QLabel#PillText { color: #B4B8BF; }
+
+/* ---- Islands ---- */
+QFrame#Island {
+    background: #1E1F22;
+    border: 1px solid #2B2D30;
+    border-radius: 12px;
+}
+QLabel#PanelHead { font-weight: 600; padding: 12px 16px 4px 16px; }
+QLabel#PanelSub { color: #8C9099; font-size: 9pt; padding: 0 16px 8px 16px; }
+QLabel#GroupLabel {
+    color: #8C9099;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 18px 6px 18px;
+}
+
+/* ---- Navigation rows (like the section list) ---- */
+QPushButton#NavButton {
+    text-align: left;
+    padding: 8px 12px;
+    margin: 1px 8px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #DFE1E5;
+    font-weight: 400;
+}
+QPushButton#NavButton:hover { background: rgba(255, 255, 255, 15); }
+QPushButton#NavButton:checked { background: #1D2B4A; color: #ffffff; font-weight: 500; }
+QPushButton#NavButton:focus { outline: none; border: 1px solid #3574F0; }
+
+/* ---- Status bar ---- */
+QWidget#StatusBar { background: transparent; }
+QLabel#StatusText { color: #B4B8BF; font-size: 9pt; }
+QLabel#Version { color: #8C9099; font-size: 9pt; }
+
+/* ---- Page content ---- */
+QLabel#Eyebrow {
+    font-family: "JetBrains Mono", "Cascadia Mono", "Consolas", monospace;
+    font-size: 9pt;
+    color: #8C9099;
+}
+QLabel#PageTitle { font-size: 19pt; font-weight: 600; color: #ffffff; }
+QLabel#PageSubtitle { color: #B4B8BF; font-size: 10.5pt; }
+
+QFrame#Card {
+    background: #25272A;
+    border: 1px solid #2B2D30;
+    border-radius: 12px;
+}
+QLabel#CardTitle {
+    color: #8C9099;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+QLabel#CardValue { font-size: 11.5pt; font-weight: 600; color: #ffffff; }
+QLabel#Muted { color: #8C9099; }
+QLabel#Seed {
+    font-family: "JetBrains Mono", "Cascadia Mono", "Consolas", "Menlo", monospace;
+    font-size: 11pt;
+    font-weight: 600;
+    color: #ffffff;
+    background: #1E1F22;
+    border: 1px solid #2B2D30;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+QLabel#Dot { font-size: 12pt; }
+QLabel[status="ok"] { color: #6CC07A; }
+QLabel[status="warn"] { color: #E8A852; }
+QLabel[status="error"] { color: #F2817B; }
+QLabel[status="idle"] { color: #8C9099; }
+QLabel[status="busy"] { color: #6B9BF5; }
+
+/* ---- Buttons ---- */
+QPushButton {
+    background: #1E1F22;
+    border: 1px solid #2B2D30;
+    border-radius: 9px;
+    padding: 7px 16px;
+    font-weight: 500;
+}
+QPushButton:hover { background: #2B2D30; }
+QPushButton:pressed { background: #25272A; }
+QPushButton:focus { border-color: #3574F0; }
+QPushButton:disabled { color: #6C707E; background: #1E1F22; border-color: #2B2D30; }
+QPushButton#Primary {
+    background: #3574F0;
+    border: 1px solid #3574F0;
+    color: #ffffff;
+}
+QPushButton#Primary:hover { background: #5A8FF3; }
+QPushButton#Primary:disabled { background: #232E47; color: #7C8AA8; border-color: #232E47; }
+QPushButton#Danger { background: #3D2426; border-color: transparent; color: #F2817B; }
+QPushButton#Danger:hover { background: #4A2A2D; }
+QPushButton#Ghost {
+    background: transparent;
+    border: none;
+    color: #6B9BF5;
+    padding: 4px 8px;
+    border-radius: 7px;
+}
+QPushButton#Ghost:hover { background: rgba(255, 255, 255, 15); color: #9DBBF8; }
+QPushButton#Ghost:disabled { color: #6C707E; background: transparent; }
+
+/* ---- Inputs ---- */
+QLineEdit, QSpinBox {
+    background: #1E1F22;
+    border: 1px solid #2B2D30;
+    border-radius: 8px;
+    padding: 6px 10px;
+    selection-background-color: #3574F0;
+}
+QLineEdit:focus, QSpinBox:focus { border-color: #3574F0; }
+QLineEdit[readOnly="true"] {
+    color: #B4B8BF;
+    font-family: "JetBrains Mono", "Cascadia Mono", "Consolas", monospace;
+}
+QSpinBox::up-button, QSpinBox::down-button { width: 0; border: none; }
+
+QCheckBox { spacing: 8px; }
+QCheckBox::indicator {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 1px solid #4A4D54;
+    background: #1E1F22;
+}
+QCheckBox::indicator:checked { background: #3574F0; border-color: #3574F0; }
+
+/* ---- Lists ---- */
+QListWidget { background: transparent; border: none; outline: none; }
+QListWidget::item { padding: 9px 10px; border-radius: 8px; margin: 2px 0; }
+QListWidget::item:hover { background: rgba(255, 255, 255, 15); }
+QListWidget::item:selected { background: #1D2B4A; color: #ffffff; }
+
+/* ---- Scrollbars ---- */
+QScrollArea { background: transparent; border: none; }
+QScrollArea > QWidget > QWidget#PageBody { background: transparent; }
+QScrollArea > QWidget { background: transparent; }
+QScrollBar:vertical { background: transparent; width: 10px; margin: 0; }
+QScrollBar::handle:vertical { background: #3A3D42; border-radius: 3px; min-height: 24px; margin: 0 2px; }
+QScrollBar::handle:vertical:hover { background: #8C9099; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: transparent; }
+
+QToolTip {
+    background: #25272A;
+    color: #DFE1E5;
+    border: 1px solid #2B2D30;
+    padding: 4px 8px;
+}

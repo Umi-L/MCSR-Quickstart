@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gapcheck",
+    "name": "GapCheck",
+    "matches": ["https://gapcheck.gg/*"]
+  },
+  {
+    "id": "seedbank",
+    "name": "Ranked SeedBank",
+    "matches": ["https://awesomedev.site/ranked-seedbank/*"]
+  }
+]
